@@ -4,6 +4,10 @@
 
 ## Задание
 
+| branch | status |
+|--------|--------|
+| fortyss-parser |[![Build Status](https://github.com/FORTYSS0/lab-boost-filesystem-04/workflows/CI/badge.svg)](https://travis-ci.com/github/FORTYSS0/lab-boost-filesystem-04)|
+
 Использовать библиотеку **boost::filesystem** для анализа директории с [FTP](https://ru.wikipedia.org/wiki/FTP)-файлами, содержащими финансовую информацию. Подробная инструкция по библиотеке **boost::filesystem** есть, например, [тут](https://www.boost.org/doc/libs/1_68_0/libs/filesystem/doc/tutorial.html).
 
 Структура анализируемой директории в общем случае может имеет вид:
