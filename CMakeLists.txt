@@ -32,18 +32,22 @@ find_package(GTest CONFIG REQUIRED)
 hunter_add_package(Boost COMPONENTS system filesystem)
 find_package(Boost 1.72.0 CONFIG REQUIRED system filesystem)
 
+add_executable(Main
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
+        )
+
 add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/FTPFile.cpp)
-add_executable(boost_filesystem
-        sources/main.cpp)
+#add_executable(boost_filesystem
+ #       sources/main.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include>"
 )
 target_link_libraries(FTPFile Boost::filesystem)
-target_link_libraries(boost_filesystem FTPFile)
+target_link_libraries(Main ${PROJECT_NAME})
 if(BUILD_TESTS)
   add_executable(tests
     # TODO: enum your files and delete this comment
@@ -77,7 +81,7 @@ endif()
 
 include(CPackConfig.cmake)
 
-install(TARGETS ${PROJECT_NAME} tests
+install(TARGETS ${PROJECT_NAME} Main
   EXPORT "${PROJECT_NAME}-targets"
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib
