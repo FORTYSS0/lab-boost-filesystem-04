@@ -85,7 +85,7 @@ void FTPFile::OutUnique(std::ostream& str) {
    << "Last data: " << unic_ac[i].get_data() << "\n";
   }
 }
-  std::ostream& operator << (std::ostream& str, FTPFile& scanner) {
+  std::ostream& operator << (std::ostream& str,const FTPFile& scanner) {
     scanner.OutAll(str);
     scanner.OutUnique(str);
     return str;
