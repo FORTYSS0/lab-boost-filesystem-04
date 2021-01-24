@@ -13,6 +13,7 @@ int main (int argc, char* argv[]){
       path_to_ftp = argv[1];
     }
     FTPFile scan(path_to_ftp);
+    std::cout<<scan;
     return 0;
   } catch (filesystem_error& e) {
     std::cout << e.what() << std::endl;
