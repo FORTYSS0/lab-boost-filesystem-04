@@ -55,7 +55,7 @@ class FTPFile {
   void Check(const path& pat);
   void Unique(std::vector<string>);
   std::vector<string> AcName();
-  friend std::ostream& operator << (std::ostream&, const FTPFile& scanner);
+  friend std::ostream& operator << (std::ostream&, FTPFile&);
   void OutAll (std::ostream&);
   void OutUnique(std::ostream&);
  protected:
