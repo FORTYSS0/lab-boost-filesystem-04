@@ -68,15 +68,15 @@ void FTPFile::Unique(std::vector<string> ac_name) {
       t_br = "";
     }
   }
-void FTPFile::OutAll(std::ostream& str) {
+void FTPFile::OutAll(std::ostream& str) const {
     str << "Finanse file info: \n";
-    for (auto& ac : all_ac) {
+    for (Account ac : all_ac) {
       if (ac.get_type()) {
         ac.print(str);
       }
     }
   }
-void FTPFile::OutUnique(std::ostream& str) {
+void FTPFile::OutUnique(std::ostream& str) const {
   str << "Broker info: \n";
   for (size_t i = 0; i<unic_ac.size();++i){
    str << "Broker: " << unic_ac[i].get_br_name() << " "
@@ -85,7 +85,7 @@ void FTPFile::OutUnique(std::ostream& str) {
    << "Last data: " << unic_ac[i].get_data() << "\n";
   }
 }
-  std::ostream& operator << (std::ostream& str,const FTPFile& scanner) {
+  std::ostream& operator << (std::ostream& str, const FTPFile& scanner) {
     scanner.OutAll(str);
     scanner.OutUnique(str);
     return str;
@@ -162,11 +162,11 @@ pat.parent_path().filename().string());
     br_name = input_br_name;
   }
 void Account::print(std::ostream& str) {
-  str << br_name << "\t" << "balance_" << ac_name << "_" << data << ".txt\n";
+  str << get_br_name() << "\t" << "balance_" << get_ac_name() << "_" << get_data() << ".txt\n";
 }
-int Account::get_data() { return  data;}
-string Account::get_ac_name() { return  ac_name;}
-string Account::get_br_name() {return  br_name;}
+int Account::get_data() const { return  data;}
+string Account::get_ac_name() const { return  ac_name;}
+string Account::get_br_name() const {return  br_name;}
 bool Account::get_type() {return  type;}
 void Account::inp_data(int dat) {data = dat;}
 void Account::inp_br_name(string brok_name) { br_name = std::move(brok_name);}

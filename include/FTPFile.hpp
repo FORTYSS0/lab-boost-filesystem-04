@@ -33,11 +33,11 @@ struct Account {
 
   void setter(const string&, const string&, const string&);
 
-  int get_data();
+  int get_data() const;
 
-  string get_ac_name();
+  string get_ac_name() const;
 
-  string get_br_name();
+  string get_br_name() const;
 
   void inp_data(int);
 
@@ -56,9 +56,10 @@ class FTPFile {
   void Unique(std::vector<string>);
   std::vector<string> AcName();
   friend std::ostream& operator << (std::ostream&,const FTPFile&);
-  void OutAll (std::ostream&);
-  void OutUnique(std::ostream&);
- protected:
+  void OutAll (std::ostream&) const;
+  void OutUnique(std::ostream&) const;
+
+ private:
   std::vector<Account> all_ac;
   std::vector<Account> unic_ac;
   std::vector<int> count_ac;
