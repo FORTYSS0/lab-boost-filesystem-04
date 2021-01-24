@@ -22,12 +22,12 @@ std::vector<string>FTPFile::AcName() {
 void FTPFile::Check(const path& pat) {
   try {
     if (exists(pat)) {
-      if (is_regular_file(pat)){
-        all_ac.emplace_back(pat);
-      }else if( is_directory(pat)) {
+      if (is_directory(pat)) {
         for (auto&& item : directory_iterator(pat)) {
           Check(item);
         }
+      } else if(is_regular_file(pat)){
+        all_ac.emplace_back(pat);
       } else if (is_symlink(pat)) {
         Check(read_symlink(pat));
       } else {
