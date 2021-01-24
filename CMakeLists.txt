@@ -37,7 +37,7 @@ add_library(${PROJECT_NAME} STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/FTPFile.cpp)
 
 add_executable(Main
-        ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
+        .github/demo/main.cpp
         )
 
 #add_executable(boost_filesystem
