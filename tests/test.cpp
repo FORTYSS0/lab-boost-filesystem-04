@@ -1,6 +1,7 @@
 // Copyright 2021 by FORTYSS
 
 #include <gtest/gtest.h>
+#include "FTPFile.hpp"
 
 TEST(Example, EmptyTest) {
     EXPECT_TRUE(true);
